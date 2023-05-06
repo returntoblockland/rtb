@@ -1,0 +1,4 @@
+[submodule "external/rtb-t3d"]
+	path = external/rtb-t3d
+	shallow = true
+	url = git@github.com:returntoblockland/rtb-t3d.git

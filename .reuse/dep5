@@ -6,5 +6,6 @@ Source: https://github.com/returntoblockland/rtb
 Files:
 	.gitattributes
 	.gitignore
+	.gitmodules
 Copyright: Copyright (c) The rtb Contributors <https://github.com/returntoblockland/rtb>
 License: CC0-1.0
