@@ -1,0 +1,6 @@
+* text=auto
+*.asm linguist-language=Assembly
+*.cpp linguist-language=C++
+*.cs linguist-langauge=TorqueScript
+*.cs text eol=crlf
+*.h linguist-language=C++
