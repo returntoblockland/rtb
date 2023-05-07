@@ -4,3 +4,4 @@
 *.cs linguist-langauge=TorqueScript
 *.cs text eol=crlf
 *.h linguist-language=C++
+*.h.in linguist-language=C++

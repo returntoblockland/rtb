@@ -1,0 +1,29 @@
+// Copyright (c) The rtb Contributors <https://github.com/returntoblockland/rtb>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+#pragma once
+
+#ifndef _DEBUG
+#define TORQUE_RELEASE
+#define TORQUE_SHIPPING
+#endif
+
+#define TORQUE_APP_NAME "@TORQUE_APP_NAME@"
+#define TORQUE_APP_VERSION @TORQUE_APP_VERSION@
+#define TORQUE_APP_VERSION_STRING  "@TORQUE_APP_VERSION@"
+#define TORQUE_DISABLE_MEMORY_MANAGER
+#define TORQUE_ENGINE_PRODUCT 0006
+#define TORQUE_FRAME_SIZE 16 << 20
+#define TORQUE_MULTITHREAD
+#define TORQUE_NO_DSO_GENERATION
+#define TORQUE_TOOLS
+
+#ifdef TORQUE_DEBUG
+#define TORQUE_ENABLE_ASSERTS
+#define TORQUE_ENABLE_GFXDEBUGEVENTS
+#define TORQUE_ENABLE_PROFILE_PATH
+#define TORQUE_ENABLE_PROFILER
+#define TORQUE_ENABLE_SCRIPTASSERTS
+#define TORQUE_GATHER_METRICS 0
+#endif

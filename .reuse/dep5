@@ -9,3 +9,9 @@ Files:
 	.gitmodules
 Copyright: Copyright (c) The rtb Contributors <https://github.com/returntoblockland/rtb>
 License: CC0-1.0
+
+Files:
+	CMakeLists.txt
+	source/*
+Copyright: Copyright (c) The rtb Contributors <https://github.com/returntoblockland/rtb>
+License: GPL-3.0-or-later
