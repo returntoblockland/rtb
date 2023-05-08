@@ -6,9 +6,11 @@
 #include "platform/platformVolume.h"
 #include "app/mainLoop.h"
 #include "core/util/journal/process.h"
+#include "gui/core/guiCanvas.h"
 #include "windowManager/platformWindowMgr.h"
 
 static bool handleCommandLine(S32 argc, const char **argv);
+static void init();
 
 S32 TorqueMain(S32 argc, const char **argv)
 {
@@ -18,6 +20,10 @@ S32 TorqueMain(S32 argc, const char **argv)
 	{
 		return 1;
 	}
+
+	Con::setLogMode(6);
+
+	init();
 
 	while (StandardMainLoop::doMainLoop());
 
@@ -41,4 +47,16 @@ bool handleCommandLine(S32 argc, const char **argv)
 	Platform::setCurrentDirectory(Platform::getMainDotCsDir());
 
 	return true;
+}
+
+void init()
+{
+	GuiControlProfile* defaultProfile = new GuiControlProfile();
+	defaultProfile->registerObject("GuiDefaultProfile");
+
+	GuiControlProfile* tooltipProfile = new GuiControlProfile();
+	tooltipProfile->registerObject("GuiTooltipProfile");
+
+	GuiCanvas* canvas = new GuiCanvas();
+	canvas->registerObject("Canvas");
 }
