@@ -1,4 +1,6 @@
+.DS_Store
 .vs*/
+*.app/
 *.cached.dts
 *.dds
 *.decals

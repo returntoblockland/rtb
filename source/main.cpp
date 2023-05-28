@@ -12,7 +12,7 @@
 static bool handleCommandLine(S32 argc, const char **argv);
 static void init();
 
-S32 TorqueMain(S32 argc, const char **argv)
+S32 TorqueInit(S32 argc, const char **argv)
 {
 	StandardMainLoop::init();
 
@@ -25,11 +25,18 @@ S32 TorqueMain(S32 argc, const char **argv)
 
 	init();
 
-	while (StandardMainLoop::doMainLoop());
+    return 0;
+}
 
+bool TorqueTick()
+{
+	return StandardMainLoop::doMainLoop();
+}
+
+S32 TorqueShutdown(S32 exitCode)
+{
 	StandardMainLoop::shutdown();
-
-	return 0;
+	return exitCode;
 }
 
 bool handleCommandLine(S32 argc, const char **argv)

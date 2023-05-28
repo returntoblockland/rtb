@@ -15,3 +15,8 @@ Files:
 	source/*
 Copyright: Copyright (c) The rtb Contributors <https://github.com/returntoblockland/rtb>
 License: GPL-3.0-or-later
+
+Files:
+	source/Info.plist
+Copyright: Copyright (c) The rtb Contributors <https://github.com/returntoblockland/rtb>
+License: CC0-1.0
