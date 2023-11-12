@@ -1,0 +1,17 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Return to Blockland
+Upstream-Contact: Johnny Patterson <johnny.patterson.jr@gmail.com>
+Source: https://github.com/returntoblockland/rtb
+
+Files:
+	.gitattributes
+	.gitignore
+	.gitmodules
+Copyright: Copyright (c) Johnny Patterson
+License: CC0-1.0
+
+Files:
+	CMakeLists.txt
+	src/*
+Copyright: Copyright (c) Johnny Patterson
+License: GPL-3.0-or-later
