@@ -1,3 +1,4 @@
+// Copyright (c) Johnny Patterson
 // Copyright (c) 2014-2023 Omar Cornut
 //
 // SPDX-License-Identifier: MIT
@@ -22,6 +23,8 @@
 #include "imgui_impl_vulkan.h"
 #include <stdio.h>          // printf, fprintf
 #include <stdlib.h>         // abort
+#include <functional>
+#include <string>
 #define GLFW_INCLUDE_NONE
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
@@ -384,7 +387,23 @@ static void FramePresent(ImGui_ImplVulkanH_Window* wd)
 }
 
 // Main code
+#if 1
+struct imgui_rtb_app_state
+{
+	std::function<void()> init;
+	std::function<void()> loop;
+	std::string title;
+	GLFWwindow* window;
+	ImVec4 clear_color;
+	int width;
+	int height;
+	bool show_demo_window;
+};
+
+int imgui_main_loop(imgui_rtb_app_state& app)
+#else
 int main(int, char**)
+#endif
 {
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())
@@ -392,7 +411,12 @@ int main(int, char**)
 
     // Create window with Vulkan context
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+#if 1
+    app.window = glfwCreateWindow(app.width, app.height, app.title.c_str(), nullptr, nullptr);
+    GLFWwindow* window = app.window;
+#else
     GLFWwindow* window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+Vulkan example", nullptr, nullptr);
+#endif
     if (!glfwVulkanSupported())
     {
         printf("GLFW: Vulkan Not Supported\n");
@@ -474,10 +498,17 @@ int main(int, char**)
     //ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
     //IM_ASSERT(font != nullptr);
 
+    app.init();
+
     // Our state
+#if 1
+    bool& show_demo_window = app.show_demo_window;
+    ImVec4& clear_color = app.clear_color;
+#else
     bool show_demo_window = true;
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+#endif
 
     // Main loop
     while (!glfwWindowShouldClose(window))
@@ -512,6 +543,9 @@ int main(int, char**)
         if (show_demo_window)
             ImGui::ShowDemoWindow(&show_demo_window);
 
+#if 1
+        app.loop();
+#else
         // 2. Show a simple window that we create ourselves. We use a Begin/End pair to create a named window.
         {
             static float f = 0.0f;
@@ -544,6 +578,7 @@ int main(int, char**)
                 show_another_window = false;
             ImGui::End();
         }
+#endif
 
         // Rendering
         ImGui::Render();
