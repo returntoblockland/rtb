@@ -9,11 +9,3 @@ Files:
 	.gitmodules
 Copyright: Copyright (c) Johnny Patterson
 License: CC0-1.0
-
-Files:
-	CMakeLists.txt
-	external/CMakeLists.txt
-	launcher/*
-	service/*
-Copyright: Copyright (c) Johnny Patterson
-License: GPL-3.0-or-later

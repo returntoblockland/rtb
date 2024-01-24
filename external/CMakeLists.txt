@@ -1,4 +1,6 @@
 # Copyright (c) Johnny Patterson
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 include(ExternalProject)
 
@@ -23,3 +25,9 @@ target_sources(imgui PRIVATE
 target_include_directories(imgui PUBLIC ${IMGUI_DIR} ${IMGUI_DIR}/backends)
 target_link_libraries(imgui PUBLIC glfw Vulkan::Vulkan)
 set_target_properties(imgui PROPERTIES FOLDER "External")
+
+add_subdirectory(json EXCLUDE_FROM_ALL)
+
+option(TF_BUILD_TESTS "" OFF)
+option(TF_BUILD_EXAMPLES "" OFF)
+add_subdirectory(taskflow EXCLUDE_FROM_ALL)

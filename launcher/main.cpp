@@ -1,4 +1,6 @@
 // Copyright (c) Johnny Patterson
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #ifdef _WIN32
 

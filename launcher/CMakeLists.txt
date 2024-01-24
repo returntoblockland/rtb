@@ -1,7 +1,13 @@
 # Copyright (c) Johnny Patterson
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 add_executable(rtb-launcher)
 target_compile_features(rtb-launcher PRIVATE cxx_std_20)
+
+target_include_directories(rtb-launcher PRIVATE
+	${CMAKE_CURRENT_LIST_DIR}
+)
 
 file(GLOB_RECURSE src *)
 source_group(TREE ${CMAKE_CURRENT_LIST_DIR} FILES ${src})

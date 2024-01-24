@@ -6,3 +6,9 @@
 	path = external/imgui
 	shallow = true
 	url = git@github.com:ocornut/imgui.git
+[submodule "external/json"]
+	path = external/json
+	url = git@github.com:nlohmann/json.git
+[submodule "external/taskflow"]
+	path = external/taskflow
+	url = git@github.com:taskflow/taskflow.git
